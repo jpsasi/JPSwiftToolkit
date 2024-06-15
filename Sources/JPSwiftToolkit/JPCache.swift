@@ -16,6 +16,8 @@ import Foundation
 public class JPCache<Key: Hashable, Value> {
   private let wrapped: NSCache<WrappedKey, Entry> = NSCache()
   
+  public init() {}
+  
   public func insert(_ value: Value, forKey key: Key) {
     let entry = Entry(value: value)
     wrapped.setObject(entry, forKey: WrappedKey(key: key))
